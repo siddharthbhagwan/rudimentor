@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rudiments</h1>
+
+<table class="table table-responsive table-bordered">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Youtube Video</th>
+      <th>Sheet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rudiments.each do |rudiment| %>
+      <tr>
+        <td><%= rudiment.number %></td>
+        <td><%= rudiment.name %></td>
+        <td><%= rudiment.yt %></td>
+        <td><%= rudiment.sheet %></td>
+        <td><%= link_to 'Show', rudiment %></td>
+        <td><%= link_to 'Edit', edit_rudiment_path(rudiment) %></td>
+        <td><%= link_to 'Destroy', rudiment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rudiment', new_rudiment_path %>

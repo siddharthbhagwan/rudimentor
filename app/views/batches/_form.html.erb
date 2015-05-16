@@ -1,0 +1,41 @@
+<%= form_for(@batch) do |f| %>
+  <% if @batch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@batch.errors.count, "error") %> prohibited this batch from being saved:</h2>
+
+      <ul>
+      <% @batch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :rudiment_number %><br>
+    <%= f.text_field :rudiment_number %>
+  </div>
+  <div class="field">
+    <%= f.label :ability_bpm %><br>
+    <%= f.number_field :ability_bpm %>
+  </div>
+  <div class="field">
+    <%= f.label :ability_beat %><br>
+    <%= f.text_field :ability_beat %>
+  </div>
+  <div class="field">
+    <%= f.label :endurance_bpm %><br>
+    <%= f.number_field :endurance_bpm %>
+  </div>
+  <div class="field">
+    <%= f.label :endurance_beat %><br>
+    <%= f.text_field :endurance_beat %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

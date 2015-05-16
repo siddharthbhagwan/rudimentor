@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  name: MyString
+  yt: MyString
+  sheet: MyString
+
+two:
+  number: 1
+  name: MyString
+  yt: MyString
+  sheet: MyString

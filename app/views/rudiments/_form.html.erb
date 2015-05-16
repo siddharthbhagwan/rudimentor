@@ -1,0 +1,33 @@
+<%= form_for(@rudiment) do |f| %>
+  <% if @rudiment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rudiment.errors.count, "error") %> prohibited this rudiment from being saved:</h2>
+
+      <ul>
+      <% @rudiment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :yt %><br>
+    <%= f.text_field :yt %>
+  </div>
+  <div class="field">
+    <%= f.label :sheet %><br>
+    <%= f.text_field :sheet %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

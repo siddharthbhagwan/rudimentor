@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @rudiment.number %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rudiment.name %>
+</p>
+
+<p>
+  <strong>Yt:</strong>
+  <%= @rudiment.yt %>
+</p>
+
+<p>
+  <strong>Sheet:</strong>
+  <%= @rudiment.sheet %>
+</p>
+
+<%= link_to 'Edit', edit_rudiment_path(@rudiment) %> |
+<%= link_to 'Back', rudiments_path %>

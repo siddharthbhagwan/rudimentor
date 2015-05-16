@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @batch.user_id %>
+</p>
+
+<p>
+  <strong>Rudiment number:</strong>
+  <%= @batch.rudiment_number %>
+</p>
+
+<p>
+  <strong>Ability bpm:</strong>
+  <%= @batch.ability_bpm %>
+</p>
+
+<p>
+  <strong>Ability beat:</strong>
+  <%= @batch.ability_beat %>
+</p>
+
+<p>
+  <strong>Endurance bpm:</strong>
+  <%= @batch.endurance_bpm %>
+</p>
+
+<p>
+  <strong>Endurance beat:</strong>
+  <%= @batch.endurance_beat %>
+</p>
+
+<%= link_to 'Edit', edit_batch_path(@batch) %> |
+<%= link_to 'Back', batches_path %>

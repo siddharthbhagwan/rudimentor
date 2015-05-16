@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  rudiment_number: MyString
+  ability_bpm: 1
+  ability_beat: MyString
+  endurance_bpm: 1
+  endurance_beat: MyString
+
+two:
+  user_id: 1
+  rudiment_number: MyString
+  ability_bpm: 1
+  ability_beat: MyString
+  endurance_bpm: 1
+  endurance_beat: MyString

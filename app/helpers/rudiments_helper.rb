@@ -1,0 +1,2 @@
+module RudimentsHelper
+end
