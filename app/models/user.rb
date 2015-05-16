@@ -6,8 +6,18 @@ class User < ActiveRecord::Base
 
   has_many :batches
   
-  def batch_setup
-  	p 'CCALLLLLLLEEDDDDDDDDD'
+  def batch_setup(data)
+  	(1...41).each do |i|
+  		b = Batch.new(user_id: data.id,
+  									rudiment_number: i,
+  									ability_bpm: 0,
+  									ability_beat: 0,
+  									endurance_bpm: 0,
+  									endurance_beat: 0
+  									)
+  		b.save
+  		
+  	end
   end
 
   def batch_threshold

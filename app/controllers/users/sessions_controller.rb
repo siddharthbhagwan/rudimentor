@@ -10,7 +10,7 @@ class Users::SessionsController < Devise::SessionsController
   def create
     super
     unless current_user.batch_threshold
-      current_user.batch_setup
+      current_user.batch_setup(current_user)
     end
   end
 
