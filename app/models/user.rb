@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def batch_threshold
-    p self.batches.count == 40? true : false
+    self.batches.count == 40? true : false
   end
 
 end

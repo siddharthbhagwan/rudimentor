@@ -5,20 +5,20 @@ $(document).ready(function(){
 	$('.mod_metrics').on('click', function(){
 			var val, id, action, data;
 			action = $(this).attr('id');
-			val = $(this).closest('td').prev('td').text();
+			val = $(this).closest('td').prev('td').text().trim();
 			id = $(this).closest('tr').attr('id');
 
 			switch(action){
 				case 'modify_ab_plus': data = { ability_bpm : ++val };
 															 editBatch_Ajax(id, data);
 															 break;
-				case 'modify_ab_minus': data = { ability_bpm : --val };
+				case 'modify_ab_minus': data = { ability_bpm : val>0? --val: val };
 															  editBatch_Ajax(id, data);
 															  break;
 				case 'modify_end_plus': data = { endurance_bpm : ++val };
 															 	editBatch_Ajax(id, data);
 															  break;
-				case 'modify_end_minus': data = { endurance_bpm : --val };
+				case 'modify_end_minus': data = { endurance_bpm : val>0? --val: val };
 															   editBatch_Ajax(id, data);
 															   break;
 			}
