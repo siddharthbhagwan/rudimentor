@@ -9,14 +9,13 @@ class User < ActiveRecord::Base
   def batch_setup(data)
   	(1...41).each do |i|
   		b = Batch.new(user_id: data.id,
-  									rudiment_number: i,
+  									rudiment_number: i.to_i,
   									ability_bpm: 0,
   									ability_beat: 0,
   									endurance_bpm: 0,
   									endurance_beat: 0
   									)
-  		b.save
-  		
+  		b.save  		
   	end
   end
 
