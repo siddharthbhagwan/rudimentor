@@ -5,7 +5,7 @@ class BatchesController < ApplicationController
   # GET /batches
   # GET /batches.json
   def index
-    @batches = Batch.all.order(:id)
+    @batches = Batch.where(user_id: current_user.id).order(:id)
   end
 
   # GET /batches/1
