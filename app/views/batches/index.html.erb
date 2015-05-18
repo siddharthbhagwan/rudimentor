@@ -2,33 +2,62 @@
 
 <h1>My Rudiments</h1>
 
-<table class='table table-striped table-responsive'>
-  <thead>
-    <tr>
-      <th style="text-align:center" colspan='2'>Rudiment</th>
-      <th style="text-align:center">Ability bpm</th>
-      <th style="text-align:center">Ability beat</th>
-      <th style="text-align:center">Endurance bpm</th>
-      <th style="text-align:center">Endurance beat</th>
-      <th style="text-align:center">Video</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @batches.each do |batch| %>
+<div class="col-md-8 col-md-offset-2">
+  <table class='table table-striped table-responsive'>
+    <thead>
       <tr>
-        <td><%= batch.rudiment_number %></td>
-        <td><%= Rudiment.find(batch.rudiment_number).name %></td>
-        <td style="text-align:center"><%= batch.ability_bpm %></td>
-        <td style="text-align:center"><%= batch.ability_beat %></td>
-        <td style="text-align:center"><%= batch.endurance_bpm %></td>
-        <td style="text-align:center"><%= batch.endurance_beat %></td>
-        <td style="text-align:center">
-          <%= link_to '', Rudiment.find(batch.rudiment_number).yt, class: 'fa fa-2x fa-youtube' %>
-        </td>
+        <th style="text-align:center" colspan='2'>Rudiment</th>
+        <th style="text-align:center">Ability <i class="fa fa-info-circle info-ability" data-html="true" data-toggle="tooltip" data-placement="top" title="This is the speed in beats per minute (bpm) at which you can <strong><em>clearly</em></strong> play the rudiment for <strong><em>1</em></strong> minute at a stretch"></i><br/></th>
+        <th style="text-align:center" colspan='3'>Endurance <i class="fa fa-info-circle info-endurance" data-html="true" data-toggle="tooltip" data-placement="top" title="This is the speed in beats per minute (bpm) at which you can <strong><em>clearly</em></strong> play the rudiment for <strong><em>5</em></strong> minutes at a stretch"></i></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @batches.each do |batch| %>
+        <tr id="<%= batch.id %>">
+          <td style="text-align:center" class="col-md-1"><%= batch.rudiment_number %></td>
+
+          <td class="col-md-4">
+            <%= Rudiment.find(batch.rudiment_number).name %>
+            <%= link_to '', Rudiment.find(batch.rudiment_number).yt, class: 'fa fa-video-camera no-highlight' %>
+          </td>
+
+          <td style="text-align:center" class="col-md-2">
+            <span class="ability_bpm">
+              <%= batch.ability_bpm %>
+            </span>
+          </td>
+
+          <td class="col-md-1">
+            <div class="modify_ab" style="text-align: left">
+              <div class="row">
+                <i class="fa fa-plus-circle mod_metrics" id="modify_ab_plus"></i> 
+              </div>
+              <div class="row">
+                <i class="fa fa-minus-circle mod_metrics" id="modify_ab_minus"></i> 
+              </div>
+            </div>
+          </td>
+
+          <td style="text-align:center" class="col-md-2">
+            <div class="endurance_bpm"><%= batch.endurance_bpm %></span>
+          </td>
+
+          <td class="col-md-1">
+            <div class="modify_end" style="text-align: left">
+              <div class="row">
+                <i class="fa fa-plus-circle mod_metrics" id="modify_end_plus"></i> 
+              </div>
+              <div class="row">
+                <i class="fa fa-minus-circle mod_metrics" id="modify_end_minus"></i> 
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>

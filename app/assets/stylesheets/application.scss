@@ -18,6 +18,60 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+body {
+	font-family: 'Josefin Sans';
+}
+
+thead {
+	font-size: 20px;
+}
+
+.sub-th {
+	font-size: 12px;
+}
+
+.mod_metrics {
+	font-size: 13px;
+	margin-left: 10px;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.no-highlight {
+	color: #000000;
+	&:hover {
+		color: #000000;
+		text-decoration: none;
+	}
+}
+
+.fa-plus-circle, .fa-minus-circle {
+	font-size: 13px;
+}
+
+.fa-check-circle {
+	visibility: none;
+}
+
+.fa-video-camera {
+	font-size: 13px;
+	margin-right: 10%;
+	float: right;
+}
+
+.navbar-brand {
+	font-size: 25px;
+}
+
+.info-ability, .info-endurance {
+	font-size: 13px;
+}
+
+td {
+	vertical-align: middle !important;
+}
+
 footer {
 	margin-top: 10px;
 }
