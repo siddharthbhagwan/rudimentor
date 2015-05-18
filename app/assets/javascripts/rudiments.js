@@ -9,19 +9,30 @@ $(document).ready(function(){
 			id = $(this).closest('tr').attr('id');
 
 			switch(action){
-				case 'modify_ab_plus': data = { ability_bpm : ++val };
+				case 'modify_ab_plus': data = { ability_bpm : val<300? ++val: val };
 															 editBatch_Ajax(id, data);
 															 break;
 				case 'modify_ab_minus': data = { ability_bpm : val>0? --val: val };
 															  editBatch_Ajax(id, data);
 															  break;
-				case 'modify_end_plus': data = { endurance_bpm : ++val };
+				case 'modify_end_plus': data = { endurance_bpm : val<300? ++val: val };
 															 	editBatch_Ajax(id, data);
 															  break;
 				case 'modify_end_minus': data = { endurance_bpm : val>0? --val: val };
 															   editBatch_Ajax(id, data);
 															   break;
 			}
+	});
+
+	$('.fa-video-camera').on('click', function(){
+		var src;
+		src = $(this).attr('data-src');
+		$('#videoModal iframe').attr('src', src);
+		$('#videoModal').modal('show');
+	});
+
+	$("#videoModal").on('hidden.bs.modal', function (e) {
+    $("#videoModal iframe").attr("src", $("#videoModal iframe").attr("src"));
 	});
 });
 

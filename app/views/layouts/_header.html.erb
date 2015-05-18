@@ -20,6 +20,13 @@
 					</li>
 				</ul>
 			</div>
+		<% else %>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><%= link_to 'Sign Up', new_user_registration_path %></li>
+					<li><%= link_to 'Log In', new_user_session_path %></li>
+				</ul>
+			</div>
 		<% end %>
 	</nav>
 </header>

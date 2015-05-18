@@ -68,6 +68,18 @@ thead {
 	font-size: 13px;
 }
 
+.tagline {
+	font-size: 40px;
+}
+
+.tagline_desc {
+	font-size: 20px;
+}
+
+.quote {
+	float: left;
+}
+
 .devise_pages {
 	border-left: solid 1px #DDDDDD;
 	border-right: solid 1px #DDDDDD;
@@ -86,6 +98,7 @@ td {
 
 footer {
 	margin-top: 10px;
+	background-color: white;
 }
 
 .footer-row {

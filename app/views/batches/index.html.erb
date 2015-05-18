@@ -1,6 +1,12 @@
-<p id='notice'><%= notice %></p>
-
-<h1>My Rudiments</h1>
+<% unless user_signed_in? %>
+  <div class="tagline">Track your rudiments. Tame those drums.</div>
+  <div class="tagline_desc">Rudimentor helps you record your ability and endurance on each of the 40 drum rudiments.<br/>
+  Watch, learn and master your technique.</div><br/>
+  <div class="quote" style="font-size:18px"><em>'What gets measured, gets done'</em></div>
+  <br/><br/><br/><br/>
+<% else %>
+  <h1>My Rudiments</h1>
+<% end %>
 
 <div class="col-md-8 col-md-offset-2">
   <table class='table table-striped table-responsive'>
@@ -19,7 +25,8 @@
 
           <td class="col-md-4">
             <%= Rudiment.find(batch.rudiment_number).name %>
-            <%= link_to '', Rudiment.find(batch.rudiment_number).yt, class: 'fa fa-video-camera no-highlight' %>
+            <i class="fa fa-video-camera" data-src="https://www.youtube.com/embed/Z89YwuvVeYo" frameborder="0"></i>
+            <!-- Rudiment.find(batch.rudiment_number).yt, class: 'fa fa-video-camera no-highlight' -->
           </td>
 
           <td style="text-align:center" class="col-md-2">
@@ -58,6 +65,20 @@
       <% end %>
     </tbody>
   </table>
-</div>
 
-<br>
+  <!-- Video Modal -->
+  <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Watch and learn</h4>
+        </div>
+        <div class="modal-body">
+          <iframe width="560" height="315" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/><br/>
+</div>

@@ -1,11 +1,15 @@
 class BatchesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_batch, only: [:show, :edit, :update, :destroy, :testfn]
 
   # GET /batches
   # GET /batches.json
   def index
-    @batches = Batch.where(user_id: current_user.id).order(:id)
+    if user_signed_in?
+      @batches = Batch.where(user_id: current_user.id).order(:id)
+    else
+      @batches = Batch.where(user_id: 0).order(:id)
+    end
   end
 
   # GET /batches/1
