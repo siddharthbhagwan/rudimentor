@@ -58,6 +58,9 @@ thead {
 	font-size: 13px;
 	margin-right: 10%;
 	float: right;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .navbar-brand {
