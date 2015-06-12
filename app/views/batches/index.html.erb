@@ -1,8 +1,8 @@
 <% unless user_signed_in? %>
-  <div class="tagline">Track your rudiments. Tame those drums.</div>
-  <div class="tagline_desc">Rudimentor helps you record your ability and endurance on each of the 40 drum rudiments.<br/>
-  Watch, learn and master your technique.</div><br/>
-  <div class="quote" style="font-size:18px"><em>'What gets measured, gets done'</em></div><br/>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="tagline">Track your rudiments. Tame those drums.</div>
+    <div class="tagline_desc">Rudimentor helps you record your ability and endurance on each of the 40 drum rudiments</div><br/>
+  </div>
 <% else %>
   <h1>My Rudiments</h1>
 <% end %>
@@ -84,8 +84,12 @@
 </div>
 
 <% unless user_signed_in? %>
-  <div class="cta row col-md-5">
-    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success' %> and get started on all rudiments for <strong><em>free!<em></strong>
+  <div class="cta row col-md-8 col-md-offset-2">
+    <center>
+      Watch the video, track your progress and master your technique.<br/>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-success' %> and get started on all rudiments. And yes, its completely <strong><em>free!<em></strong><br/>
+      Remember, 'What gets measured, gets done'.
+    </center>
   </div>
 <% end %>
 
