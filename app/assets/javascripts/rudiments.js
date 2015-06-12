@@ -43,8 +43,7 @@ function editBatch_Ajax(id, batch_data){
 	  context: 'this',
 	  dataType: 'json',
 	  data: {
-	  	batch: batch_data,
-	  	id: id
+	  	batch: batch_data
 	  },
 	  success: function(msg){ 
 	  	$('#' + id + ' .' + Object.keys(batch_data)[0]).text(batch_data[Object.keys(batch_data)[0]]);
