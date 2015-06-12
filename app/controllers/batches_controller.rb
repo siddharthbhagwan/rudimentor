@@ -1,6 +1,7 @@
 class BatchesController < ApplicationController
   # before_action :authenticate_user!
-  before_action :set_batch, only: [:show, :edit, :update, :destroy, :testfn]
+  before_action :set_batch, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource class: Batch
 
   # GET /batches
   # GET /batches.json
