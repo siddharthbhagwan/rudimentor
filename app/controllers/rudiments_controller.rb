@@ -1,7 +1,7 @@
 class RudimentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
   before_action :set_rudiment, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource class: Rudiment
+  load_and_authorize_resource class: Rudiment, except: :show
 
   # GET /rudiments
   # GET /rudiments.json
@@ -12,6 +12,14 @@ class RudimentsController < ApplicationController
   # GET /rudiments/1
   # GET /rudiments/1.json
   def show
+    respond_to do |format|
+      format.json { render :json => @rudiment }
+      format.html {
+        authenticate_user!
+        authorize! :manage, Rudiment
+        render :index
+      }
+    end
   end
 
   # GET /rudiments/new
