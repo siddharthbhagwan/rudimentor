@@ -1,0 +1,40 @@
+<tr id="<%= batch.id %>">
+  <td style="text-align:center" class="col-md-1"><%= batch.rudiment_number %></td>
+
+  <td class="col-md-4">
+    <%= Rudiment.find(batch.rudiment_number).name %>
+    <i class="fa fa-video-camera" data-src="https://www.youtube.com/embed/Z89YwuvVeYo" frameborder="0"></i>
+  </td>
+
+  <td style="text-align:center" class="col-md-2">
+    <span class="ability_bpm">
+      <%= batch.ability_bpm %>
+    </span>
+  </td>
+
+  <td class="col-md-1">
+    <div class="modify_ab" style="text-align: left">
+      <div class="row">
+        <i class="fa fa-plus-circle mod_metrics" id="modify_ab_plus"></i> 
+      </div>
+      <div class="row">
+        <i class="fa fa-minus-circle mod_metrics" id="modify_ab_minus"></i> 
+      </div>
+    </div>
+  </td>
+
+  <td style="text-align:center" class="col-md-2">
+    <div class="endurance_bpm"><%= batch.endurance_bpm %></span>
+  </td>
+
+  <td class="col-md-1">
+    <div class="modify_end" style="text-align: left">
+      <div class="row">
+        <i class="fa fa-plus-circle mod_metrics" id="modify_end_plus"></i> 
+      </div>
+      <div class="row">
+        <i class="fa fa-minus-circle mod_metrics" id="modify_end_minus"></i> 
+      </div>
+    </div>
+  </td>
+</tr>

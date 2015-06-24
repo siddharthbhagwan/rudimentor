@@ -8,62 +8,93 @@
 <% end %>
 
 <div class="col-md-8 col-md-offset-2">
-  <table class='table table-striped table-responsive'>
-    <thead>
-      <tr>
-        <th style="text-align:center" colspan='2'>Rudiment</th>
-        <th style="text-align:center">Ability <i class="fa fa-info-circle info-ability" data-html="true" data-toggle="tooltip" data-placement="top" title="This is the speed in beats per minute (bpm) at which you can <strong><em>clearly</em></strong> play the rudiment for <strong><em>1</em></strong> minute at a stretch.<br/><br/> The time signature is 1/8"></i><br/></th>
-        <th style="text-align:center" colspan='3'>Endurance <i class="fa fa-info-circle info-endurance" data-html="true" data-toggle="tooltip" data-placement="top" title="This is the speed in beats per minute (bpm) at which you can <strong><em>clearly</em></strong> play the rudiment for <strong><em>5</em></strong> minutes at a stretch.<br/><br/> The time signature is 1/8"></i></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @batches.each do |batch| %>
-        <tr id="<%= batch.id %>">
-          <td style="text-align:center" class="col-md-1"><%= batch.rudiment_number %></td>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="setOne">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Set I
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="setOne">
+        <div class="panel-body">
+          <table class="table table-striped table-responsive">
+            <tbody>
+              <% @batches.limit(10).each do |batch| %>
+                <%= render(partial: "batches/batchSet", locals: {:batch => batch}) %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
-          <td class="col-md-4">
-            <%= Rudiment.find(batch.rudiment_number).name %>
-            <i class="fa fa-video-camera" data-src="https://www.youtube.com/embed/Z89YwuvVeYo" frameborder="0"></i>
-            <!-- Rudiment.find(batch.rudiment_number).yt, class: 'fa fa-video-camera no-highlight' -->
-          </td>
+    <% if user_signed_in? %>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="setTwo">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Set II
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="setTwo">
+          <div class="panel-body">
+            <table class="table table-striped table-responsive">
+              <tbody>
+                <% @batches.limit(10).offset(10).each do |batch| %>
+                  <%= render(:partial => "batches/batchSet", :locals => {:batch => batch}) %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-          <td style="text-align:center" class="col-md-2">
-            <span class="ability_bpm">
-              <%= batch.ability_bpm %>
-            </span>
-          </td>
-
-          <td class="col-md-1">
-            <div class="modify_ab" style="text-align: left">
-              <div class="row">
-                <i class="fa fa-plus-circle mod_metrics" id="modify_ab_plus"></i> 
-              </div>
-              <div class="row">
-                <i class="fa fa-minus-circle mod_metrics" id="modify_ab_minus"></i> 
-              </div>
-            </div>
-          </td>
-
-          <td style="text-align:center" class="col-md-2">
-            <div class="endurance_bpm"><%= batch.endurance_bpm %></span>
-          </td>
-
-          <td class="col-md-1">
-            <div class="modify_end" style="text-align: left">
-              <div class="row">
-                <i class="fa fa-plus-circle mod_metrics" id="modify_end_plus"></i> 
-              </div>
-              <div class="row">
-                <i class="fa fa-minus-circle mod_metrics" id="modify_end_minus"></i> 
-              </div>
-            </div>
-          </td>
-        </tr>
-
-      <% end %>
-    </tbody>
-  </table>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="setThree">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Set III
+            </a>
+          </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="setThree">
+          <div class="panel-body">
+            <table class="table table-striped table-responsive">
+              <tbody>
+                <% @batches.limit(10).offset(20).each do |batch| %>
+                  <%= render(:partial => "batches/batchSet", :locals => {:batch => batch}) %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="setFour">
+          <h4 class="panel-title">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Set IV
+            </a>
+          </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="setFour">
+          <div class="panel-body">
+            <table class="table table-striped table-responsive">
+              <tbody>
+                <% @batches.limit(10).offset(30).each do |batch| %>
+                  <%= render(:partial => "batches/batchSet", :locals => {:batch => batch}) %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
 
   <!-- Video Modal -->
   <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
