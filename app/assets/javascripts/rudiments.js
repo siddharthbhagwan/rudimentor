@@ -27,7 +27,6 @@ $(document).ready(function(){
 	$('.fa-video-camera').on('click', function(){
 		var src;
 		src = $(this).attr('data-src');
-		src = src.replace("watch?v=", "v/");
 		$('#videoModal iframe').attr('src', src);
 		$('#videoModal').modal('show');
 	});
